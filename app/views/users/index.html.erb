@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Users</h1>
-
+<div ng-controller="Userindex">
 <table class="col-md-12">
   <thead>
     <tr>
@@ -28,9 +28,9 @@
   </tbody>
 </table>
 <br>
-
-<%= link_to 'New User', new_user_path %>
-<div>
-<span>Total</span>
-<%= @userscount %> Member
+  <%= link_to 'New User', new_user_path %>
+  <div>
+  <span>Total</span>
+  <%= @userscount %> Member
+  </div>
 </div>

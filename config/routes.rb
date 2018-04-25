@@ -1,5 +1,14 @@
 Rails.application.routes.draw do
-  resources :users
+  resources :users do
+    collection do
+      get :count
+    end
+    member do
+      get :name
+    end
+    resources :shops
+  end  
+  root 'users#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
