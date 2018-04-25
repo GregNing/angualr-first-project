@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Users Show</h1>
+
+<table class="col-md-12">
+  <thead>
+    <tr>
+      <th class="col-md-2">First Name</th>
+      <th class="col-md-2">Last Name</th>      
+      <th class="col-md-2">Age</th>
+      <th class="col-md-2">Gender</th>    
+    </tr>
+  </thead>
+  <tbody>    
+      <tr>
+        <td class="col-md-2"><%= @user.firstname %></td>
+        <td class="col-md-2"><%= @user.lastname %></td>
+        <td class="col-md-2"><%= @user.age %></td>
+        <td class="col-md-2"><%= @user.gender %></td>
+      </tr>
+  </tbody>
+</table>
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Back', users_path %>

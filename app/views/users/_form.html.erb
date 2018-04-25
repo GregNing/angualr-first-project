@@ -1,0 +1,13 @@
+
+
+<%= simple_form_for user do |f| %>  
+  <div class="form-group">
+    <%= f.input :firstname,label: false ,placeholder: "Greg" %>
+    <%= f.input :lastname,label: false ,placeholder: "Yang" %>
+    <%= f.input :age,label: false ,placeholder: "20" %>
+    <%= f.input :gender,label: false ,placeholder: "Male or Female or Others" %>
+  </div>
+  <div class="actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
