@@ -33,7 +33,7 @@ app.service('getuserdataService',['$http','$q','$timeout' ,function($http,$q, $t
         let responsedata = $q.defer();   
         let httpdata = {
             method: 'GET',
-            url: `/users/${user_id}/edit`,
+            url: `/users/${user_id}/edit.json`,
            };        
            $http(httpdata).then(function successCallback(response) {
                 responsedata.resolve(response.data);                  

@@ -1,13 +1,21 @@
+<style>
+.formsubmit{
+      border-color: rgb(216, 216, 216) rgb(209, 209, 209) rgb(186, 186, 186);
+}
+</style>
 
-
-<%= simple_form_for user do |f| %>  
+<%= simple_form_for user, html: { name: 'form','ng-controller': 'validateCtrl' } do |f| %>  
   <div class="form-group">
-    <%= f.input :firstname,label: false ,placeholder: "Greg" %>
-    <%= f.input :lastname,label: false ,placeholder: "Yang" %>
-    <%= f.input :age,label: false ,placeholder: "20" %>
-    <%= f.input :gender,label: false ,placeholder: "Male or Female or Others" %>
+    <%= f.input :firstname,label: false,required: true ,placeholder: "姓", input_html: {'ng-model': 'firstname'} %>
+     <span style="color:red" ng-show="hasError('firstname')">姓必填。</span>    
+    <%= f.input :lastname,label: false,required: true  ,placeholder: "名",input_html: {'ng-model': 'lastname'} %>
+    <span style="color:red" ng-show="hasError('lastname')">名必填。</span>
+    <%= f.input :age ,label: false,placeholder: "20" ,required: true , input_html: {'ng-model': 'age',type: 'number'} %>    
+    <span style="color:red" ng-show="onlyNumber('age')">年齡必填。(只能輸入數字)</span>
+    <%= f.input :gender,label: false,as: :select, include_blank: false, include_hidden: true ,collection: [['Male', 'Male'], ['Female', 'Female'],['Others','Others'] ],required: true , input_html: {'ng-model': 'gender'} %>    
+    <span style="color:red" ng-show="gendervalidagtes('gender')">請選擇性別。</span>    
   </div>
   <div class="actions">
-    <%= f.button :submit %>
+    <%= f.button :submit,'ng-disabled': "validatesformsubmit();",class: 'formsubmit' %>
   </div>
 <% end %>
