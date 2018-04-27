@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Users</h1>
-<div ng-controller="Userindex">
+<div ng-controller = "index_user_data as settings">
 <table class="col-md-12">
   <thead>
     <tr>
@@ -9,7 +9,7 @@
       <th class="col-md-2">Last Name</th>
       <th class="col-md-2">Age</th>
       <th class="col-md-2">Gender</th>
-      <th colspan="3" class="col-md-4"></th>
+      <th colspan="4" class="col-md-4"></th>
     </tr>
   </thead>
 
@@ -23,14 +23,23 @@
         <td><%= link_to 'Show', user %></td>
         <td><%= link_to 'Edit', edit_user_path(user) %></td>
         <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><a href="JavaScript:void(0);" ng-click="get_user_data('<%= user.id %>')" >Angular Edit User</a></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 <br>
-  <%= link_to 'New User', new_user_path %>
+  
+  <a href="JavaScript:void(0);" ng-click="showview=true;" >New User</a>
   <div>
-  <span>Total</span>
-  <%= @userscount %> Member
+    <span>Total</span>  
+    {{usercount}} Member
+  </div>
+  <div ng-show="showview" class="view-animate-container "style="width: 250px;">
+  <div new-user class="view-animate"></div>  
+  </div>
+  <div class="view-animate-container "style="width: 250px;">    
+  <div  ng-include="template" class="view-animate"></div>    
   </div>
 </div>
+

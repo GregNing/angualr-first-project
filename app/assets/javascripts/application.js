@@ -10,10 +10,14 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//#= require jquery
-//#= require jquery_ujs
+//= require jquery
+//= require jquery_ujs
 //= require angular
-//= require_tree .
+//= require angular-route
+//= require angular-animate
+//= require_self
+//= require controller/users_controller
+//= require service/users_sevice
 
-var app = angular.module('layoutbody',[]);
-
+var app = angular.module('application_body',[]);
+// var app = angular.module('application_body', ['ngRoute', 'ngAnimate'])

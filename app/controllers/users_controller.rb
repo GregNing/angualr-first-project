@@ -1,11 +1,9 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy, :name]
   before_action :params_permit,only: [:address]
-  # GET /users
   # GET /users.json
   def index
-    @users = User.all
-    @userscount = User.all.count
+    @users = User.all    
   end
 
   # GET /users/1
@@ -18,16 +16,16 @@ class UsersController < ApplicationController
     @user = User.new
   end
   #use post
-  def count    
+  def count            
     @usercounts = User.all.count
-    respond_to do |format|        
-        format.json { render json: @usercounts }
-    end
+    respond_to do |format|      
+      format.json { render json: @usercounts}
+    end           
   end
   
   def name
         respond_to do |format|       
-        format.html { render :name } 
+        format.html { render :name }
         format.json { render json: @user }
     end  
   end
@@ -83,7 +81,7 @@ class UsersController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_user
       @user = User.find(params[:id])
-    end
+    end    
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params      
